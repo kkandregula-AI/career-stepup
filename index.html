@@ -242,15 +242,13 @@ textarea{resize:vertical;min-height:72px;line-height:1.6}
       <div class="ai-badge"><span class="pulse"></span> Gemini AI Parsing</div>
 
       <div class="dz" id="dropzone">
-        <input type="file" id="file-input" accept=".pdf,.txt,.doc,.docx">
+        <input type="file" id="file-input" accept=".pdf,.txt">
         <div class="dz-ico" id="dz-ico">📄</div>
         <div class="dz-title" id="dz-title">Upload Your Resume</div>
         <div class="dz-sub" id="dz-sub">Drag & drop or click to browse</div>
         <div class="fmt-pills">
           <span class="fmt-pill">.pdf</span>
           <span class="fmt-pill">.txt</span>
-          <span class="fmt-pill">.doc</span>
-          <span class="fmt-pill">.docx</span>
         </div>
       </div>
 
@@ -505,7 +503,7 @@ $('file-input').addEventListener('change', e => handleFile(e.target.files[0]));
 function handleFile(file) {
   if(!file) return;
   const ext = file.name.split('.').pop().toLowerCase();
-  if(!['pdf','txt','doc','docx'].includes(ext)) { toast('Please upload PDF, TXT, DOC or DOCX'); return; }
+  if(!['pdf','txt','doc','docx'].includes(ext)) { toast('Please upload PDF, TXT'); return; }
   dzEl.className = 'dz ok';
   $('dz-ico').textContent = '✓';
   $('dz-title').textContent = file.name;
